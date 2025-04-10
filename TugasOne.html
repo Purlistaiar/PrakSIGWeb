@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beritung Faktorial</title>
+    <script>
+        function rumus() {
+            let angka = document.getElementById("inputAngka").value;
+            let hasil = 1;
+            if (angka >= 0) {
+                for (let i = 1; i <= angka; i++) {
+                    hasil *= i;
+                }
+                document.getElementById("rumus").innerHTML = 
+                    `kamu mencari angka faktorial dari ${angka}, angkanya adalah ${hasil}`;
+            } else {
+                document.getElementById("rumus").innerHTML = 
+                    "yppa (yang positif positif aja)";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Hitung faktorial</h2>
+    <p>Masukkan angka yang km suka</p>
+    <input type="number" id="inputAngka" min="0">
+    <button onclick="rumus()">hasil</button>
+    <p id="rumus"></p>
+</body>
+</html>

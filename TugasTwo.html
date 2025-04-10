@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validasi Input</title>
+    <script>
+        function validasiPassword() {
+            let password = document.getElementById("password").value;
+            if (password !== "1234") {
+                alert("Password salah!");
+                return false;
+            } else {
+                alert("Login berhasil!");
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Validasi Input</h2>
+    <p>Masukkan nomor hp dan password:</p>
+    <form onsubmit="return validasiPassword()">
+        No HP: <input type="number" id="number" required><br>
+        Password: <input type="password" id="password" required><br>
+        <button type="submit">submit</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilangan Fibonacci</title>
+    <script>
+        function fibonacci(n) {
+            let fibo = [0, 1];
+            for (let i = 2; i < n; i++) {
+                fibo.push(fibo[i - 1] + fibo[i - 2]);
+            }
+            return fibo;
+        }
+
+        function cariBilanganFibonacci() {
+            let batas = parseInt(document.getElementById("angka").value);
+            let hasil = document.getElementById("hasil");
+
+            if (batas < 1 || isNaN(batas)) {
+                hasil.innerHTML = "<p>Masukkan angka yang valid!</p>";
+                return;
+            }
+
+            let bilanganFibonacci = fibonacci(batas);
+            hasil.innerHTML = `<p>Bilangan Fibonacci hingga ${batas} angka:</p> <p>${bilanganFibonacci.join(", ")}</p>`;
+        }
+    </script>
+</head>
+<body>
+    <h2>Cari Bilangan Fibonacci</h2>
+    <p>Masukkan jumlah bilangan Fibonacci yang ingin ditampilkan:</p>
+    <input type="number" id="angka">
+    <button onclick="cariBilanganFibonacci()">Cari</button>
+    
+    <div id="hasil"></div>
+</body>
+</html>

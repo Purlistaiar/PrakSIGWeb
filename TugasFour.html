@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilangan Prima</title>
+    <script>
+        function cekPrima(n) {
+            if (n < 2) return false;
+            for (let i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i === 0) return false;
+            }
+            return true;
+        }
+
+        function tampilkanPrima() {
+            let angka = parseInt(document.getElementById("angka").value);
+            let hasil = document.getElementById("hasil");
+            let listPrima = [];
+
+            if (isNaN(angka) || angka < 1) {
+                hasil.innerHTML = "<p>Masukkan angka yang valid!</p>";
+                return;
+            }
+
+            for (let i = 1; i <= angka; i++) {
+                if (cekPrima(i)) {
+                    listPrima.push(i);
+                }
+            }
+
+            hasil.innerHTML = `<p>Bilangan prima dari 1 sampai ${angka}: ${listPrima.join(", ")}</p>`;
+        }
+    </script>
+</head>
+<body>
+    <h2>Cari Bilangan Prima</h2>
+    <p>Masukkan sebuah angka:</p>
+    <input type="number" id="angka">
+    <button onclick="tampilkanPrima()">Tampilkan Bilangan Prima</button>
+
+    <div id="hasil"></div>
+</body>
+</html>
